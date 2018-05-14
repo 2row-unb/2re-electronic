@@ -16,3 +16,5 @@ O kernel farrá boa parte da comunicação com a parte de software. Serão envia
 A taxa de envio no kernel é de 34.4kbps. Essa é uma informação tida como base a taxa de transmissão do módulo Wifi, ESP8266.
 
 ![Celula_s^[Fonte: ]](imagens/mqtt.png){#fig:Modelo broker MQTT}
+
+![Celula_s^[Fonte: ]](imagens/teste_mqtt.png){#fig:Envio de dados da IMU pela ESP8266 por MQTT}
