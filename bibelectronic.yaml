@@ -68,4 +68,17 @@
     title: 'Dynamics of human gait'
     publisher: "Kiboho Publishers"
     language: pt-BR
+    
+  - type: article-journal
+    id: baptista05
+    author:
+    - family: Baptista
+      given: [Rafael, R. B.]
+    issued:
+      date-parts:
+      - - 2005
+    title: 'Aspectos fisiológicos da produção de força em remadores'
+    publisher: "Universidade Federal do Rio Grande do Sul"
+    language: pt-BR
    
+ 
