@@ -109,15 +109,23 @@ Para os cálculos de offset foram analisados 100 amostras em cada eixo para veri
   
    ![Celula_s^[Fonte:Adaptado de (INVENSENSE, 2016).]](imagens/i2c.png){#fig:i2c}
   
-  Ao colocar o segundo MPU9250, segundo escravo, para que não houvesse curto-circuito nas linhas de transmissão foram colocadas resistências de pull-up de (valor das resistências) 
+  Ao colocar o segundo MPU9250, segundo escravo, para que não houvesse curto-circuito nas linhas de transmissão foram colocadas resistências de pull-up de 3.3k.
   
   
   
-  Explicação do código de leitura Multiplexação com base nos registradores.
-   Explicação da Esp8266
-   Explicação do cálculo de sensibilidade e tem de colocá-lo aqui.
+#### Leitura dos dados das IMUs
+
+  Inicialmente foram setados todos os registradores da MPU9250, que se referem ao acelerômetro e giroscópio, e também do AK8963, que é o registrador do magnetômetro. Em seguida foram definidas as escalas de transformação para os valores práticos de graus/segundo para giroscópio, gravidade para o acelerômetro e tesla para o magnetômetro.
+  Para continuar o programa foram colocadas as variáveis de offset de acordo com os dados retirados da calibração para cada IMU, assim como o fator de escala para o magnetômetro. As demais variáveis utilizadas ao longo do código foram definidas e desse modo pode se iniciar as funções: inicialização da comunicação I2C, função de escrita, função para multiplexação dos IMUs e função de leitura dos dados.
+  É necessário frisar que a orientação do magnetômetro é diferente em relação aos demais sensores, como mostrado na imagem [@fig:orientacoes], portanto ao se criar o código, mudou-se a ordem da orientação para que não houvesse erro na futura fusão sensorial.  
+  
+  
+  
+  
+
+ 
    Envio de dados via MQTT 
-   Explicação do código
+
    Cálculo da taxa de transmissão de dados
 
 ### 2RE - Relay
@@ -129,7 +137,6 @@ O freio eletromagnético conta com 2 bobinas, sendo cada uma delas seccionada em
 Quando o atleta vai começar o movimento, ele deve apertar o botão 1 para que o sistema seja iniciado ou reiniciado caso algum outro indivíduo estivesse utilizando o equipamento anteriomente. Após ter apertado o primeiro botão o indivíduo então tem que escolher a carga de força para execução da remada, ela vai de 1 a 4, sendo o peso 1 o mais fraco e aumenta proporcionalmente conforme o atleta aperta o botão 2, o botão 3 serve para diminuir a carga de 4 até 1 caso o atleta queira voltar a realizar o movimento com uma carga menor. É importante frisar que o atleta deve para o movimento antes de mudar a carga, pois as estatísticas estarão sendo contabilizadas a partir da carga escolhida, também é importante presar pela segurança do atleta e como o controle fica na lateral do movimento, não é seguro que o mesmo tente alterar a força da remada durante a realização do esporte.
 
 ![reles^[Fonte: Do_autor]](imagens/rele.jpeg){#fig:Rele}
-
 
 
 
