@@ -6,7 +6,7 @@
   
    
   
-  ![diagrama^[Fonte:Do_autor]](imagens/diagrama.png){#fig:Diagrama_Geral}
+  ![diagrama^[Fonte:Do_autor]](imagens/diag.png){#fig:Diagrama_Geral}
 
 ## 3.3.1 2RE-Suit
 
