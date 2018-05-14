@@ -10,8 +10,10 @@
 
 ## 3.3.1 2RE-Suit
 
-  Esse subsistema continha o 2RE-Cardio e o 2RE-IMU. Devido a demanda e necessidade do projeto o 2RE-Cardio teve de ser retirado, a aquisição desse dado não apresenta um parâmetro significativo para o equipamento de remo ergométrico 2Row. Abaixo, serão descritas as soluções, decisões embasadas e testes desse subsistema. 
-
+  Esse subsistema continha o 2RE-Cardio e o 2RE-IMU. No entanto após a exclusão do 2RE-Cardio, que será explicado o porquê a seguir, o 2RE-Suit passou a ser a vestimenta somente com o 2RE-IMU, dessa forma a confecção ainda está em andamento e será apresentada nas próximas semanas.
+  
+  
+  
 ### 2RE-Cardio
 
 Inicialmente o 2Row contaria com um sensor para medir frequência cardíaca do atleta de remo durante o movimento, sendo o subsistema chamado de 2RE-Cardio, porém ao final do Ponto de Controle 1 foi notado juntamente com os professores que seria difícil fazer a aquisição dos sinais por alguns motivos, como: dificuldade em alocar o sensor na orelha ou nos dedos das mãos (locais apropriados para aquisição), uma vez que o atleta estará em movimento e poderia sair do lugar durante a remada, dificuldade no processamento do sinal de batimento cardíaco com as muitas interferências durante o movimento.
