@@ -36,12 +36,19 @@
   Portanto, analisando valores e disponibilidade rápida para entrega, conclui-se que comprar um wattímetro pronto estaria fora do orçamento do projeto uma vez que seu valor é muito alto, também analisou-se comprar um torquímetro e um encoder, mas seria uma solução relativamente complexa do ponto de vista de integração e também por aumentar o escopo do projeto, uma vez que já há demasiado trabalho a ser realizado. Por isso, optou-se por colocar 2 células de carga na base para os pés para realizar medições de força e transformá-las em potência, como será explicado adiante.  
   
   
+  #### HX711
+  
+  HX711 é um preciso conversor analógico-digital de 24 bits feito para converter escalas de peso de células de carga. Suas utilização é vasta pois o mesmo torna a leitura de sinais mais simples pois a saída da célula de carga é analógica e o HX711 transduz a saída para digital, podendo então o sinal ser capturado por dispositivos com entradas digitais, como realizado nesse projeto com a Raspberry Pi.
+  
+  
+  ![HX711^[Fonte: ]](imagens/diagrama_hx711.png){#fig:diagrama_hx711}
+  
   #### Célula de Carga Modelo S
 
   A Célula de carga, muito conhecido como "strain gage" é um transdutor responsável por medir a informação de peso ou alguma força a partir da colocação física do objeto a ter a massa descoberta em cima da célula de carga. O strain gage modelo S tem esse nome exatamente por ter o formato de um S, como pode ser observado na figura x, quando o objeto é colocado em cima do mesmo, o peso do objeto deforma a célula de carga, que conta com resistores internos, sendo um deles variável em relação à deformação. Então há uma saída de tensão que varia conforme a deformação da célula quando o objeto pesa sobre a mesma. Com o auxílio do conversor HX711, mostrado na figura xx, o valor de tensão que se encontra analógica é convertida para digital e nos pinos GPIO da Raspberry Pi, que atua como o 2RE-Kernel, é possível obter os valores de saída do HX711.
   
   
-![carga^[Fonte: do_autor]](imagens/carga_montada.jpeg){#fig:Testes_célula_de_carga}
+![carga^[Fonte: do_autor]](imagens/carga_montada.png){#fig:Testes_célula_de_carga}
   
   
   Para dimensionar a célula de carga a ser utilizada, foi nessário calcular a força de reação em que a mesma será exposta e concomitantemente a isso, o sistema do 2RBoad fez a simulação de forças para o aparato dos pés, para verificar se a estrutura suportaria a força aplicada, para o valor de potência máxima, no qual um atleta de remo pode realizar. Segundo os autores, [@maia06] [@baptista05], a potência máxima de por ciclo de remada pode ser defina em torno de 600 W. Logo, esse será o valor máximo que o equipamento 2Row irá operar e o valor que será aplicado ao modelo matemático proposto.
@@ -86,18 +93,23 @@ $$$|F| = \sqrt{F_{x}^{2} + F_{y}^{2}}$$${#eq:modulof}
   
  Em cada pé o peso máximo será de $m = 86,58 kg$
  
-
-  
-    
-#### Cógido para leitura dos valores de força
-
-  Para realizar a leitura da força exercida nas células de carga e realizar testes para futura integração foi criado um programa em Python para que a leitura pudesse acontecer usando o microprocessador Raspberry Pi, os pinos 8 e 13 foram colocados no modo BOARD,em que reprenta o número no pino da placa
-
   
 
   
   Entre os modelos pesquisados para servir como célula de carga, o modelo S e o modelo de viga de flexão foram os que mais se adaptaram às necessidades do projeto. Pensando na alocação dos sensores no subsistema 2RE-Boat, foi escolhida então a célula de carga modelo S pois a mesma ocuparia menos espaço e tem o limite de força adequado à medição necessária. 
  
   Para realizar a medição da força a partir da célula de carga foi necessário utilizar um componente que converte as saídas analógicas a do strain gage em saídas digitais, o componente em questão é o hx711. Para realizar os testes do subsistema realizou-se a leitura na Raspberry Pi 3 em seus pinos GPIO, um programa em python foi criado e a leitura da força pôde ser realizada, o modelo de célula de carga escolhida suporta o limite de 200 kg, passando do limite estabelicido no projeto, já que uma célula de carga de 100 kg resolveria. No entanto, tendo em vista que CS200, produto do fornecedor da Balança Líder, suporta o peso máximo calculado um dos fatores para se utlilizar esse dispositivo além das especificações apresentadas foi a disponibilidade de empréstimo de 2 células de carga do modelo S por professores da FGA.
+
+
+
+    
+#### Cógido para leitura dos valores de força
+
+  Para realizar a leitura da força exercida nas células de carga e realizar testes para futura integração foi criado um programa em Python para que a leitura pudesse acontecer usando o microprocessador Raspberry Pi, os pinos 8 e 13 foram colocados no modo BOARD,além do VCC e GND para conezão om o HX711. A leitura pode ser vista na imagem a seguir:
+  
+  
+  ![carga^[Fonte: do_autor]](imagens/monitor_carga.png){#fig:monitor_carga}
+
+
 
 
