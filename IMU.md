@@ -4,7 +4,7 @@
 
   O sistema de eletrônica ficou responsável pelo sensoriamento, aquisição de sinais, tratamentos dos sinais e controle do acionamento das cargas. Os sinais obtidos foram das IMUs e dos botões, este último define qual a carga que deverá ser acionada. Este relatório apresenta a evolução do grupo, assim como as alterações realizadas no escopo do ponto de controle 1.
   
-  
+   
   
   ![diagrama^[Fonte:Do_autor]](imagens/diagrama.png){#fig:Diagrama_Geral}
 
