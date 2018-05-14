@@ -81,4 +81,18 @@
     publisher: "Universidade Federal do Rio Grande do Sul"
     language: pt-BR
    
+    
+ - type: book
+   id: hibbler10
+   author:
+   - family: Hibbeler
+     given: [Hibbeler, R. C.]
+    title: 'Engineering Mechanics: Dynamics'
+    chapter-number: 17-20
+    publisher: 'Pearson'
+    issued:12
+      date-parts:
+      - - 2010
+    edition: 12
+    language: en-US
  
