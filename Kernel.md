@@ -16,6 +16,7 @@ O padrão publish/subscribe é uma alternativa ao tradicional modelo cliente-ser
 ## Aplicação no projeto
 O kernel farrá boa parte da comunicação com a parte de software. Serão enviadas informações recebidas das IMU's, também as recebidas acerca dos dados de potência. Todas essa informações vão ser passadas ao software para que a análise seja feita e a decisão seja tomada pelo kernel.
 A escolha pelo MQTT foi com base na facilidade em utilizar um protocolo da camada de aplicação cuja velocidade de envio das mensagens serão sufientes em uma rede local. O projeto fica robusto ao utilizar um protocolo confiável e com uma certa mobilidade para o envio ordenado de mensagens. Além disso o protocolo MQTT possui um buffer suficiente para organizar as mensagens em termos de um tempo no kernel do projeto e transparecer a transição de dados em tempo real.  
+O projeto envolve uma topogia ideal para o uso do protocolo, pois o kernel necessita julgar informações e divisão correta do envio das mensagens[@fig:Modelo broker MQTT], algo que um servidor poderia trazer complicações. Além da base do MQTT é ser usado para comunicação entre máquinas e não por envio à base de solicitações de clientes, como ocorre no servidor. A aplicação também é bem colocada por se tratar de clientes mandando informaçẽos de sensores, o que traz a ideia de IoT, o que não deixa de ser parte do projeto.
 
 A taxa de envio no kernel é de 34.4kbps. Essa é uma informação tida como base a taxa de transmissão do módulo Wifi, ESP8266.
 
