@@ -115,14 +115,14 @@ Para os cálculos de offset foram analisados 100 amostras em cada eixo para veri
   
 #### Leitura dos dados das IMUs
 
-  Inicialmente foram setados todos os registradores da MPU9250, que se referem ao acelerômetro e giroscópio, e também do AK8963, que é o registrador do magnetômetro. Em seguida foram definidas as escalas de transformação para os valores práticos de graus/segundo para giroscópio, gravidade para o acelerômetro e tesla para o magnetômetro.
-  Para continuar o programa foram colocadas as variáveis de offset de acordo com os dados retirados da calibração para cada IMU, assim como o fator de escala para o magnetômetro. As demais variáveis utilizadas ao longo do código foram definidas e desse modo pode se iniciar as funções: inicialização da comunicação I2C, função de escrita, função para multiplexação dos IMUs e função de leitura dos dados.
-  É necessário frisar que a orientação do magnetômetro é diferente em relação aos demais sensores, como mostrado na imagem [@fig:orientacoes], portanto ao se criar o código, mudou-se a ordem da orientação para que não houvesse erro na futura fusão sensorial.  
-  
-  
-  
-  
 
+  Para realizar as leituras foi utilizado uma ESP8266 com 2 IMUs multiplexadas, assim, com apenas um microcontrolador seria possível obter os dados das IMUs,
+      
+  Inicialmente foram setados todos os registradores da MPU9250, que se referem ao acelerômetro e giroscópio, e também do AK8963, que é o registrador do magnetômetro. Em seguida foram definidas as escalas de transformação para os valores práticos de graus/segundo para giroscópio, gravidade para o acelerômetro e tesla para o magnetômetro.
+  Para continuar o programa foram colocadas as variáveis de offset de acordo com os dados retirados da calibração para cada IMU, assim como o fator de escala para o magnetômetro. As demais variáveis utilizadas ao longo do código foram definidas e desse modo pode se iniciar as funções: inicialização da comunicação I2C, função de escrita, função para multiplexação dos IMUs e função de leitura dos dados. Foi estudado como trabalhar melhor com a ESP266 para ler mais de uma IMU, somente os pinos D1 e D2 da ESP8266 transmitem comunicação I2C, portanto utilizou-se os pinos digitais D6 e D7 para multiplexar a partir do código e obter os dados das IMUs acopladas ao sistema. 
+  É necessário frisar que a orientação do magnetômetro é diferente em relação aos demais sensores, como mostrado na imagem [@fig:orientacoes], portanto ao se criar o código, mudou-se a ordem da orientação para que não houvesse erro na futura fusão sensorial.
+  
+  
  
    Envio de dados via MQTT 
 
