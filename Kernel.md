@@ -14,3 +14,5 @@ Entretando a parte do Kernel funciona de maneira mais interessante pelo fato de 
 O kernel farrá boa parte da comunicação com a parte de software. Serão enviadas informações recebidas das IMU's, também as recebidas acerca dos dados de potência. Todas essa informações vão ser passadas ao software para que a análise seja feita e a decisão seja tomada pelo kernel.
 
 A taxa de envio no kernel é de 34.4kbps. Essa é uma informação tida como base a taxa de transmissão do módulo Wifi, ESP8266.
+
+![Celula_s^[Fonte: ]](Desktop/mqtt.png){#fig:Modelo broker MQTT}
