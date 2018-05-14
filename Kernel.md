@@ -32,3 +32,9 @@ A imagem [@fig:Envio_IMU_ESP8266_MQTT] retrata o recebimento de dados pelo termi
 ## Integração eletrônica com software
 A troca de informação entre Eletrônica e software é bastante importante para o correto funcionamento do projeto. Essa relevância se dá pelo fato de ocorrer a troca de várias informações referentes ao desenvolvimento do atleta.
 Será entregue a parte de software os dados referêntes as IMU's, um tempo de ciclo, a potência desenvolvida pelo atleta e os estados dos botôes. A interação entre esses dados entregues tratá como retorno as ações que o kernel deverá delegar aos dispositivos as tarefas relacionadas ao movimento.
+
+O vetor enviado como uma mensagem para software tem o seguinte formato:
+vetor[]=(accelx1, accely1, accelz1, girox1, giroy1, giroz1, magnx1, magny1, magnz1, accelx2, accely2, accelz2, girox2, giroy2, giroz2, magnx2, magny2, magnz2, pot, t, estado 1,estado2,estado3)
+
+### Paho Client
+Toda a comuniação entre o Kernel e a parte de software será feita usando o paho client. Ele já tem métodos especificos para que essa comunicação eficiente.
