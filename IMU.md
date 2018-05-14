@@ -73,7 +73,7 @@ Fonte: (INVENSENSE, 2016)
 
    Para realizar a calibração dos três eixos (x,y,z), foi necessário que o sensor ficasse apoiado de forma firme, para isso foi utilizada uma plataforma, a qual foi feita para auxiliar na calibração de IMUs pelo LEIA (Laboratory of Embedded Systems and Integrated Circuits Applications). Essa plataforma foi desenvolvida em um software 3D, e serve apenas como apoio e para facilitar o manuseio  nos processos de calibração da da IMU. Para realizar a calibração foi verificado antes de iniciar que a bancada estava na posição correta  e durante o procedimento não houve movimentos bruscos. Como pode ser visto na Figura [@plataforma], observa-se que é possível manipular os três eixos da IMU manualmente. Essa bancada possui três transferidores, cada um destinado a medida de grau para cada eixo. A resolução da medida de grau da bancada é de 10 graus.
    
-   ![Celula_s^[Fonte:Autor,2018).]](imagens/plataforma.jpg){#fig:plataforma}
+   ![Celula_s^[Fonte:Autor,2018).]](imagens/plataforma.jpeg){#fig:plataforma}
    
   Vale ressaltar que com essa plataforma a calibração continua a ser manual, como acontece em drones, exoesqueletos [@fabian2018]. Para o desenvolvimento do software de calibração foram definidos o endereço na MPU9250 dos sensores de acelerômetro e giroscópio 0x68 e o do magnetômetro 0x0C (InvenSense, 2016). Esses endereços são os do escravos e eles são necessários para que a comunicação I2C  aconteça entre a ESP8266 e os sensores.  
   
