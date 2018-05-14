@@ -44,26 +44,25 @@
 ![carga^[Fonte: do_autor]](imagens/carga_montada.jpeg){#fig:Testes_célula_de_carga}
   
   
-  Para dimensionar a célula de carga a ser utilizada, foi nessário calcular a força de reação em que a mesma será exposta e concomitantemente a isso, o sistema do 2RBoad fez a simulação de forças para o aparato dos pés, para verificar se a estrutura suportaria a força aplicada, para o valor de potência máxima, no qual um atleta de remo pode realizar. Segundo os autores, [@maia06], a potência máxima de por ciclo de remada pode ser defina em torno de 600 W. Logo, esse será o valor máximo que o equipamento 2Row irá operar e o valor que será aplicado ao modelo matemático proposto.
+  Para dimensionar a célula de carga a ser utilizada, foi nessário calcular a força de reação em que a mesma será exposta e concomitantemente a isso, o sistema do 2RBoad fez a simulação de forças para o aparato dos pés, para verificar se a estrutura suportaria a força aplicada, para o valor de potência máxima, no qual um atleta de remo pode realizar. Segundo os autores, [@maia06] [@baptista05], a potência máxima de por ciclo de remada pode ser defina em torno de 600 W. Logo, esse será o valor máximo que o equipamento 2Row irá operar e o valor que será aplicado ao modelo matemático proposto.
   
-   Tendo como embasamento que é necessário saber a força de reação, já que a célula de carga ficará inclinada, utilizou-se as equações descritas por (referencia), em que se partiu do princípio do impulso angular e do momento, os quais permitem solucionar problemas que envolvem a força, velocidade e tempo. Para realizar os cálculos foi necessário definir o sistema de coordenadas do diagrama de coprpo livre. A equação XX,diz que  os impulsos angulares que atuam em um corpo durante um certo intervalo de tempo é igual a mudança do momento nesse mesmo intervalo.
+   Tendo como embasamento que é necessário saber a força de reação, já que a célula de carga ficará inclinada, utilizou-se as equações descritas por (referencia), em que se partiu do princípio do impulso angular e do momento,em que inicialemnte pressupõe que o corpo está em repouso. A equação [@eq:principio_impulso],diz que  os impulsos angulares que atuam em um corpo durante um certo intervalo de tempo é igual a mudança do momento nesse mesmo intervalo.
   
-   O princípio do impulso angular e do momento, permite solucionar problemas que envolva força, velocidade e tempo, para realizar os cálculos é necessário definir o sistema de coordenadas do diadrama de coprpo livre. A equação XX, 
-  $\sum \int_{t1}^{t2}M_{0}dt = I_{0}w_{2} - I_{0}w_{1}$
+  $$\sum \int_{t1}^{t2}M_{0}dt = I_{0}w_{2} - I_{0}w_{1}$${#eq:principio_impulso}
  
-Por analogia, sabe-se que o Watts pode ser representado por $N\ast m/s$, ou seja, é a mesma unidade de torque por segundo, desse modo, considerou-se que a potência seria o argumento da integral do impulso. O cálculo foi realizado dessa forma, nesse momento para título de comparação com a simulação da estrutura. Como foi dito anteriormente, considerou-se a potência máxima como 600 W. A partir da equação XX, encontrou-se a velocidade angular, conforme pode ser observado no cálculo XX. O intervalo de tempo definido foi o tempo de ciclo da remada especificado em 1 segundo pelos autores (referência) para a potência descrita.
+  Por analogia, sabe-se que o Watts pode ser representado por $N\ast m/s$, ou seja, é a mesma unidade de torque por segundo, desse modo, considerou-se que a potência seria o argumento da integral do impulso, tendo em vista que o corpo deixou de ficar em repouso. O cálculo foi realizado nesse momento, dessa forma, para título de comparação com a simulação da estrutura, localizada no plano de integração entre estrutura/eletrônica. Como foi dito anteriormente, considerou-se a potência máxima como 600 W. A partir da equação [@eq:velocidadeang], encontrou-se a velocidade angular para realizar o cálculo da força. O intervalo de tempo definido foi o tempo de ciclo da remada especificado em 1 segundo pelos autores para a potência descrita.
   
-  $I_{0}w = \int_{0}^{1}600dt$
+  $$$I_{0}w = \int_{0}^{1}600dt$$${#eq:velocidadeang}
    
   $w = 600 (N \times m/s) /(|I_{0}|(kg\times m^{2}))$
 
 
-O módulo da força é dado pela equação XX, mas para isso precisou-se calcular a força referente ao eixo x e ao eixo y, as quais estão dispostas na equação XX
+O módulo da força é dado pela equação [@eq:modulof], mas para isso precisou calcular a força referente ao eixo x e ao eixo y, as quais foram aplicadas pela equação [@eq:forca].
 
 
-$|F| = \sqrt{F_{x}^{2} + F_{y}^{2}}$
+$$$|F| = \sqrt{F_{x}^{2} + F_{y}^{2}}$$${#eq:modulof}
   
-  $\sum F_{n}= mw^{2}r_{0}$
+  $$$\sum F_{n}= mw^{2}r_{0}$$${#eq:forca}
   
   $F_{x}= m(600/I_{0})\times r_{0}$
   
@@ -92,8 +91,7 @@ $|F| = \sqrt{F_{x}^{2} + F_{y}^{2}}$
     
 #### Cógido para leitura dos valores de força
 
-  Para realizar a leitura da força exercida nas células de carga e realizar testes para futura integração foi criado um programa em Python para que a leitura pudesse acontecer a partir da Raspberry Pi, os pinos 8 e 13 no modo BOARD, 
-  
+  Para realizar a leitura da força exercida nas células de carga e realizar testes para futura integração foi criado um programa em Python para que a leitura pudesse acontecer usando o microprocessador Raspberry Pi, os pinos 8 e 13 foram colocados no modo BOARD,em que reprenta o número no pino da placa
 
   
 
