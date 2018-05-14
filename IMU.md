@@ -139,7 +139,7 @@ Quando o atleta vai começar o movimento, ele deve apertar o botão 1 para que o
 
 
 
-## Integração de 2RE-Electronic com 2RE-Power
+## Integração de 2R-Electronic com 2R-Power
 
 
 A integração com energia se baseia em fazer as conexões necessárias para chavear as bobinas utilizando o circuito com relés já mencionados anteriormente, testes já foram feitos para o acionamento de cada bobina separadamente e eles se mostraram nem executados.
