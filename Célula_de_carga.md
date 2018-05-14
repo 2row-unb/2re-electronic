@@ -35,14 +35,17 @@ Foram analisadas então 2 opções para medição da potência do movimento: wat
 
 
 
-  Portanto, analisando valores e disponibilidade rápida para entrega, concluímos que comprar um wattímetro pronto estaria fora do orçamento do nosso projeto uma vez que seu valor é muito alto, também analisamos comprar um torquímetro e um encoder mas seria uma solução relativamente complexa do ponto de vista de integração e também por aumentar o escopo do projeto, uma vez que já há demasiado trabalho a ser realizado. Por isso optamos por colocar 2 células de carga na base para os pés para realizar medições de força e transformar em potência, como será explicado abaixo. Entre os modelos pesquisados para servir como célula de carga, o modelo S e o modelo de viga de flexão foram os que mais se adaptaram às necessidades do projeto. Pensando na alocação dos sensores no subsistema 2RE-Boat, foi escolhida então a célula de carga modelo S pois a mesma ocuparia menos espaço e tem o limite de força adequado à medição necessária.
+  Portanto, analisando valores e disponibilidade rápida para entrega, conclui-se que comprar um wattímetro pronto estaria fora do orçamento do projeto uma vez que seu valor é muito alto, também analisou-se comprar um torquímetro e um encoder, mas seria uma solução relativamente complexa do ponto de vista de integração e também por aumentar o escopo do projeto, uma vez que já há demasiado trabalho a ser realizado. Por isso, optou-se por colocar 2 células de carga na base para os pés para realizar medições de força e transformá-las em potência, como será explicado adiante.  Para dimensionar a célula de carga a ser utilizada, foi nessário calcular a força de reação em que a mesma será exposta e concomitantemente a isso, o sistema do 2RBoad fez a simulação de forças para o aparato dos pés, para verificar se a estrutura suportaria a força aplicada, para o valor de potência máxima, no qual um atleta de remo pode realizar. Segundo os autores, (referencia), a potência máxima de por ciclo de remada pode ser defina em torno de 600 W. Logo, esse será o valor máximo que o equipamento 2Row irá operar e o valor que será aplicado ao modelo matemático proposto.
   
 #### Célula de Carga Modelo S
 
   A Célula de carga, muito conhecido como "strain gage" é um transdutor responsável por medir a informação de peso ou alguma força a partir da colocação física do objeto a ter a massa descoberta em cima da célula de carga. O strain gage modelo S tem esse nome exatamente por ter o formato de um S, como pode ser observado na figura x, quando o objeto é colocado em cima do mesmo, o peso do objeto deforma a célula de carga, que conta com resistores internos, sendo um deles variável em relação à deformação. Então há uma saída de tensão que varia conforme a deformação da célula quando o objeto pesa sobre a mesma. Com o auxílio do conversor HX711, mostrado na figura xx, o valor de tensão que se encontra analógica é convertida para digital e nos pinos GPIO da Raspberry Pi, que atua como o 2RE-Kernel, é possível obter os valores de saída do HX711.
   
   
-  Para dimensionar a célula de carga a ser utilizada, foi nessário calcular a força de reação em que a mesma será exposta e concamitantemente a isso, o sistema do 2RBoad fez a simulação de forças para o aparato dos pés para verificar se a estrutura suportaria a força, para o valor de potência máxima no qual um atleta de remo pode realizar. Segundo os autores, (referencia), a potência máxima de por ciclo de remada pode ser defina em torno de 600 W. Logo, esse será o valor máximo que o equipamento 2Row irá operar e o valor que será aplicado ao modelo matemático proposto.
+ Tendo como embasamento que é necessário saber a força de reação, já que a célula de carga ficará inclinada, utilizou-se as equações descritas por (referencia), em que se partiu do princípio do impulso angular e do momento, os quais permitem solucionar problemas que envolvem a força, velocidade e tempo. Para realizar os cálculos foi necessário definir o sistema de coordenadas do diagrama de coprpo livre. A equação XX,diz que  os impulsos angulares que atuam em um corpo durante um certo intervalo de tempo é igual a mudança do momento nesse mesmo intervalo.
+ 
+   O princípio do impulso angular e do momento, permite solucionar problemas que envolva força, velocidade e tempo, para realizar os cálculos é necessário definir o sistema de coordenadas do diadrama de coprpo livre. A equação XX, 
++  $\sum \int_{t1}^{t2}M_{0}dt = I_{0}w_{2} - I_{0}w_{1}$
  
  
  **esquemático fritzing do circuito, e foto da conexão
@@ -58,13 +61,37 @@ Foram analisadas então 2 opções para medição da potência do movimento: wat
   Como a unidade de torque é N*m/s a potência  do argunmento foi a integral do impulso.
   
   
-   
+     $|F| = \sqrt{F_{x}^{2} + F_{y}^{2}}$
+  
+  $\sum F_{n}= mw^{2}r_{0}$
+  
+  $F_{x}= m(600/I_{0})\times r_{0}$
+  
+  Onde, $r_{0} = 34,5\times (10^{-3})$ 
+        $I_{0} = 1/2 \times m r^{2}$
+        
+        
+  Logo, a força será: 
+  
+  $|F| = 1697,056 N$
+  
+  Pela Segunda Lei de Newton sabe-se que:
+  
+  $F = m\times a$
+  
+  Desse modo, o peso máximo será de:
+  
+  $m = 173,169 kg$
    
    equação
    
    valor do kg.
   
 
-Para realizar a medição da força a partir da célula de carga foi necessário utilizar um componente que converte as saídas analógicas a do strain gage em saídas digitais, o componente em questão é o hx711. Para realizar os testes do subsistema realizou-se a leitura na Raspberry Pi 3 em seus pinos GPIO, um programa em python foi criado e a leitura da força pôde ser realizada, o modelo de célula de carga escolhida suporta o limite de 200 kg, passando do limite estabelicido no projeto, no entrando também trabalha em medições de unidades de peso, ou seja, um dos fatores para utilizarmos a mesma foi a disponibilidade de empréstimo de 2 células de carga do modelo S por professores da FGA.
+ Em cada pé o peso máximo será de $m = 86,58 kg$
+  
+  Entre os modelos pesquisados para servir como célula de carga, o modelo S e o modelo de viga de flexão foram os que mais se adaptaram às necessidades do projeto. Pensando na alocação dos sensores no subsistema 2RE-Boat, foi escolhida então a célula de carga modelo S pois a mesma ocuparia menos espaço e tem o limite de força adequado à medição necessária. 
+ 
+  Para realizar a medição da força a partir da célula de carga foi necessário utilizar um componente que converte as saídas analógicas a do strain gage em saídas digitais, o componente em questão é o hx711. Para realizar os testes do subsistema realizou-se a leitura na Raspberry Pi 3 em seus pinos GPIO, um programa em python foi criado e a leitura da força pôde ser realizada, o modelo de célula de carga escolhida suporta o limite de 200 kg, passando do limite estabelicido no projeto, já que uma célula de carga de 100 kg resolveria. No entanto, tendo em vista que CS200, produto do fornecedor da Balança Líder, suporta o peso máximo calculado um dos fatores para se utlilizar esse dispositivo além das especificações apresentadas foi a disponibilidade de empréstimo de 2 células de carga do modelo S por professores da FGA.
 
 
