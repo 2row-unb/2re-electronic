@@ -8,7 +8,7 @@ Para que os dados transitem e sejam trabalhados pelo dispositivo kernel, o geren
 O MQTT(Message Queuing Telemetry Transport) é um protocolo de comunicação via troca de mensagens classificado em M2M(machine to machine). Ele será aplicado ao projeto por questões de viabilidade, pois é levado em conta a sua necessidade de pouquissíma banda, a sua base em TCP/IP e por possuir um payload que carrega a mensagem menor que HTTP.
 
 As mensagens enviadas ao Broker são publicações por parte dos clientes. Assim como o kernel, que nessa situação é o broker, vai encaminhar dados e está fazendo publicações.
-Entretando a parte do Kernel funciona de maneira mais interessante pelo fato de não só publicar, mas também subscrever, isso ocorre, pois o broker do caso atua como mediador, recebendo informações e respondendo às mesmas. Em termos simples, o dispositivo que solicita a informação é nomeado de subscriber.(figura x).
+Entretando a parte do Kernel funciona de maneira mais interessante pelo fato de não só publicar, mas também subscrever, isso ocorre, pois o broker do caso atua como mediador, recebendo informações e respondendo às mesmas. Em termos simples, o dispositivo que solicita a informação é nomeado de subscriber.
 
 ### Publish/subscribe
 O padrão publish/subscribe é uma alternativa ao tradicional modelo cliente-servidor, mas o cliente comunica diretamente com o endpoint. Todavia, Pub/Sub desacopla um cliente que envia uma mensagem particular(chamado publisher) de outro cliente(ou mais clientes), os quais estão recebendo a mensagem(chamado subscriber). Isso significa que tanto o publisher quanto o subscriber, não sabem da existência um do outro. O terceiro componente existente nesse protocolo é o broker(no projeto será o kernel). Já o broker é conhecido tanto pelo publisher quanto pelo subscriber. O broker é crucial pois é o responsável por filtrar todas as mensagens chegadas e distribui cada uma delas.
@@ -30,3 +30,5 @@ A imagem [@fig:Envio_IMU_ESP8266_MQTT] retrata o recebimento de dados pelo termi
 ![Celula_s^[Fonte: ]](imagens/teste_mqtt.png){#fig:Envio_IMU_ESP8266_MQTT}
 
 ## Integração eletrônica com software
+A troca de informação entre Eletrônica e software é bastante importante para o correto funcionamento do projeto. Essa relevância se dá pelo fato de ocorrer a troca de várias informações referentes ao desenvolvimento do atleta.
+Será entregue a parte de software os dados referêntes as IMU's, um tempo de ciclo, a potência desenvolvida pelo atleta e os estados dos botôes. A interação entre esses dados entregues tratá como retorno as ações que o kernel deverá delegar aos dispositivos as tarefas relacionadas ao movimento.
