@@ -52,7 +52,7 @@ A imagem [@fig:Envio_IMU_ESP8266_MQTT] retrata o recebimento de dados pelo termi
 
 ![Celula_s^[Fonte: ]](imagens/teste_mqtt.png){#fig:Envio_IMU_ESP8266_MQTT}
 
-## Integração eletrônica com software
+
 
 
 
