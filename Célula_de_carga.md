@@ -108,7 +108,7 @@ $$$|F| = \sqrt{F_{x}^{2} + F_{y}^{2}}$$${#eq:modulof}
   Para realizar a leitura da força exercida nas células de carga e realizar testes para futura integração foi criado um programa em Python para que a leitura pudesse acontecer usando o microprocessador Raspberry Pi, os pinos 8 e 13 foram colocados no modo BOARD,além do VCC e GND para conezão om o HX711. A leitura pode ser vista na imagem a seguir:
   
   
-  ![carga^[Fonte: do_autor]](imagens/monitor_carga.png){#fig:monitor_carga}
+  ![carga^[Fonte: Autor]](imagens/monitor_carga.png){#fig:monitor_carga}
 
 
 
