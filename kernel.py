@@ -6,6 +6,7 @@ import gabby
 import logging
 import RPi.GPIO as GPIO
 import time
+import math
 
 GPIO.setwarnings(False) 
 GPIO.setmode(GPIO.BOARD)
@@ -138,9 +139,9 @@ class Kernel(gabby.Gabby):
  	
 	#Verificar local certo de colocar essa conta
 	P_medio = 0
-	P_medio = (PESO2 + PESO)/2
+	P_medio = PESO2 + PESO
 	F = 0
-	math.cos(converterGrausParaRad(angle))
+	angle = 45
 	F = P_medio*9.81*math.cos(converterGrausParaRad(angle))
 	#calculo da energia
 	#verificar t como variável global
