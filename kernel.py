@@ -120,17 +120,22 @@ class Kernel(gabby.Gabby):
  
   			num=num^0x800000
  
-  			gpio.output(CLK,0)
-  			wei = 0
-  			wei = ((num)/1406)
+  		gpio.output(CLK,0)
+  		wei = 0
+  		wei = ((num)/1406)
   			
   
-  			PESO=(((wei-5943)/15))
-  			print PESO,"kg"
-  			time.sleep(0.5)
+  		PESO=(((wei-5943)/15))
+  		print PESO,"kg"
+  		time.sleep(0.5)
  	
+	P_medio = (PESO2 + PESO)/2
+	F = P_medio*9.81*cos(45)
+	#calculo da energia
+	#verificar t como variável global
+	Pot_final = E/t 
 	
-        return 13255.0
+        return Pot_final
 
       
     def get_carga()
@@ -210,6 +215,7 @@ class Kernel(gabby.Gabby):
                 	GPIO.output(38, 0)
 	        	contador = 3
 
+      return 0
 
     
 	
