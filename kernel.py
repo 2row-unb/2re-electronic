@@ -18,16 +18,23 @@ indice = 0
 
 class Kernel(gabby.Gabby):
     def transform(self, message):
-        logging.debug(
-            f"Received message, data: {message.payload.decode('utf-8')}")
-        imu_data = [float(x) for x in
-                    message.payload.decode('utf-8').split(';')]
+	if message.belongs_to('esp_kernel'):
+        	logging.debug(
+            	f"Received message, data: {message.payload.decode('utf-8')}")
+        	imu_data = [float(x) for x in
+                	message.payload.decode('utf-8').split(';')]
 
         buttons_info = self.get_buttons()
         weight_info = self.get_weight()
         time_info = self.get_time()
 	
-	
+	if message.belongs_to('transmitter_kernel'):
+       		logging.info(f'Received message from transmitter: {message.data}')
+
+	    	button_data = message.data
+	   
+  		self.Controller_weigth(button_data)          
+
 
         data = [*imu_data, time_info, *buttons_info, weight_info]
         return [gabby.Message(data, self.output_topics)]
@@ -57,10 +64,15 @@ class Kernel(gabby.Gabby):
     	if GPIO.input(18) == True:
         	time.sleep(0.3)
 		indice += 1
+		if (indice > 4):
+			indice = 0
+			
 		    
 	if GPIO.input(11) == True:
 		time.sleep(0.3)
         	indice -= 1
+		if (indice < 0):
+			indice = 0
 		    
 	if GPIO.input(12) == True:
 		button_reset = 1
@@ -161,11 +173,85 @@ class Kernel(gabby.Gabby):
 	
         return F
 
-      
-    def get_carga(Controle_carga)
-	
+     
+     def Controller_weigth(self,button_data):
 
-	#Verifica quantas vezes o botao foi acionado
+	indice = button_data[0]
+        #button_decr = button_data[1]
+        reset = button_data[1]
+        
+	#Define os pinos dos reles como saida- Modulo 1
+        GPIO.setup(37, GPIO.OUT)
+        GPIO.setup(35, GPIO.OUT)
+        GPIO.setup(33, GPIO.OUT)
+        GPIO.setup(31, GPIO.OUT)
+        #Define os pinos dos reles como saida - Modulo 2
+        #GPIO.setup(40, GPIO.OUT)
+        #GPIO.setup(38, GPIO.OUT)
+        #GPIO.setup(36, GPIO.OUT)
+        #GPIO.setup(32, GPIO.OUT) 
+	
+	#Inicio-todos os reles desligados - Modulo 1
+        GPIO.output(37,1)
+        GPIO.output(35,1)
+        GPIO.output(33,1)
+        GPIO.output(31,1)
+        #Inicio- todos os reles desligados - Modulo 2
+        #GPIO.output(40,1)
+        #GPIO.output(38,1)
+        #GPIO.output(36,1)
+        #GPIO.output(32,1)
+	
+	
+	if indice == 0:
+		GPIO.setup(37, GPIO.OUT)
+        	GPIO.setup(35, GPIO.OUT)
+        	GPIO.setup(33, GPIO.OUT)
+        	GPIO.setup(31, GPIO.OUT)
+	
+	#Colocar aqui parte do código que indica botão Plus_click
+	if indice  == 1:
+
+		GPIO.output(35,1)
+                GPIO.output(33,1)
+                GPIO.output(31,1)
+
+        	GPIO.output(37,0)
+	       	#GPIO.output(32,0)
+
+       	if indice == 2:
+
+	       	GPIO.output(37,1)
+        	GPIO.output(33,1)
+        	GPIO.output(31,1)
+
+	       	#GPIO.output(32, 1)
+           	GPIO.output(35, 0)
+           	#GPIO.output(36, 0)
+
+       	if indice == 3:
+
+		GPIO.output(37,1)
+        	GPIO.output(35,1)
+        	GPIO.output(31,1)
+
+           	#GPIO.output(36, 1)  
+           	GPIO.output(33, 0)
+           	#GPIO.output(38, 0)
+		
+       	if indice == 4:
+
+		GPIO.output(37,1)
+        	GPIO.output(35,1)
+        	GPIO.output(33,1)
+
+           	#GPIO.output( 38, 1)
+           	GPIO.output(31,0)
+           	#GPIO.output(40,0)
+
+       	if indice > 4:
+		indice = 1
+
        
 	
-   	return xxx
+   
