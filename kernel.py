@@ -60,65 +60,65 @@ class Kernel(gabby.Gabby):
         GPIO.output(36,1)
         GPIO.output(32,1)
 
-        while(1):
-    #Verifica se o botao foi pressionado
-    if GPIO.input(18) == True:
-        #Incrementa a variavel contador
-        contador = contador +1
-        time.sleep(0.5)
-        #Caso contador = 1, liga o rele 1
-        if contador == 1:
-           GPIO.output(37, 0)
-	       GPIO.output(32, 0)
-        #Caso contador = 2, liga o rele 2
-        if contador == 2:
-	       GPIO.output(37, 1)
-	       GPIO.output(32, 1)
-           GPIO.output(35, 0)
-           GPIO.output(36, 0)
-        if contador == 3:
-	       GPIO.output(35, 1)
-           GPIO.output(36, 1)  
-           GPIO.output(33, 0)
-           GPIO.output(38, 0)
-        if contador == 4:
-	       GPIO.output( 33, 1)
-           GPIO.output( 38, 1)
-           GPIO.output( 31, 0)
-           GPIO.output( 40, 0)
-       	if contador > 4:
-           GPIO.output(31, 1)
-	       GPIO.output(40, 1)
-	       print('Por favor, escolha uma carga de 1 a 4')   
-           contador = 0
+    	while(1):
+    		#Verifica se o botao foi pressionado
+    		if GPIO.input(18) == True:
+        	#Incrementa a variavel contador
+        	contador = contador +1
+        	time.sleep(0.5)
+        	  #Caso contador = 1, liga o rele 1
+        	  if contador == 1:
+           		GPIO.output(37, 0)
+	       		GPIO.output(32, 0)
+        	  #Caso contador = 2, liga o rele 2
+        	  if contador == 2:
+	       		GPIO.output(37, 1)
+	       		GPIO.output(32, 1)
+           		GPIO.output(35, 0)
+           		GPIO.output(36, 0)
+        	  if contador == 3:
+	       		GPIO.output(35, 1)
+           		GPIO.output(36, 1)  
+           		GPIO.output(33, 0)
+           		GPIO.output(38, 0)
+        	  if contador == 4:
+	       		GPIO.output( 33, 1)
+           		GPIO.output( 38, 1)
+           		GPIO.output( 31, 0)
+           		GPIO.output( 40, 0)
+       		  if contador > 4:
+           		GPIO.output(31, 1)
+	   		GPIO.output(40, 1)
+	   		print('Por favor, escolha uma carga de 1 a 4')   
+           		contador = 0
 
-        if GPIO.input(11) == True:
-            #Incrementa a variavel contador
-            time.sleep(0.5)
-	        if contador == 0:
-	            print('Nao tem carga no equipamento')
-            if contador == 1:
-                GPIO.output(37, 1)
-                GPIO.output(32, 1)
-	            contador = 0  
-            if contador == 2:
-                GPIO.output(35, 1)
-	            GPIO.output(36, 1)
-	            GPIO.output(37, 0)
-                GPIO.output(32, 0)
-	            contador = 1
-            if contador == 3:
-                GPIO.output(33, 1)
-                GPIO.output(38, 1)
-	            GPIO.output(35, 0)
-                GPIO.output(36, 0)
-	            contador = 2
-             if contador == 4:
-                GPIO.output(31, 1)
-	            GPIO.output(40, 1)
-	            GPIO.output(33, 0)
-                GPIO.output(38, 0)
-	            contador = 3
+        	if GPIO.input(11) == True:
+            	#Incrementa a variavel contador
+            	time.sleep(0.5)
+	    	  if contador == 0:
+	        	print('Nao tem carga no equipamento')
+              	  if contador == 1:
+                	GPIO.output(37, 1)
+                	GPIO.output(32, 1)
+	        	contador = 0  
+            	  if contador == 2:
+                	GPIO.output(35, 1)
+	        	GPIO.output(36, 1)
+	        	GPIO.output(37, 0)
+                	GPIO.output(32, 0)
+	        	contador = 1
+            	  if contador == 3:
+                	GPIO.output(33, 1)
+                	GPIO.output(38, 1)
+	        	GPIO.output(35, 0)
+                	GPIO.output(36, 0)
+	        	contador = 2
+             	  if contador == 4:
+                	GPIO.output(31, 1)
+	        	GPIO.output(40, 1)
+	        	GPIO.output(33, 0)
+                	GPIO.output(38, 0)
+	        	contador = 3
 
         
         return [1.0, 0.0, 1.0]
