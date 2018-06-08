@@ -41,7 +41,7 @@ class Kernel(gabby.Gabby):
         #Define o pino do botao como entrada
         GPIO.setup(18, GPIO.IN)
         GPIO.setup(11, GPIO.IN)
-        GPIO.setup(17, GPIO.IN)
+        GPIO.setup(16, GPIO.IN)
         
 	time.sleep(0.3)
     	if GPIO.input(18) == True:
