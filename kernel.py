@@ -153,7 +153,7 @@ class Kernel(gabby.Gabby):
 	F = P_medio*9.81*0.7071
 	#calculo da energia
 	#verificar t como variável global
-	Pot_final = o
+	Pot_final = 0
 	Pot_final = E/t 
 	
         return F
