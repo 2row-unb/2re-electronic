@@ -7,6 +7,7 @@ import logging
 import RPi.GPIO as GPIO
 import time
 import math
+import alterar_carga from Controle_carga
 
 
 GPIO.setwarnings(False) 
@@ -25,6 +26,8 @@ class Kernel(gabby.Gabby):
         buttons_info = self.get_buttons()
         weight_info = self.get_weight()
         time_info = self.get_time()
+	
+	
 
         data = [*imu_data, time_info, *buttons_info, weight_info]
         return [gabby.Message(data, self.output_topics)]
@@ -159,7 +162,8 @@ class Kernel(gabby.Gabby):
         return F
 
       
-    def get_carga()
+    def get_carga(Controle_carga)
+	
 
 	#Verifica quantas vezes o botao foi acionado
        
