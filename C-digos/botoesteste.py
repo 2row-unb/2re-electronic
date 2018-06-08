@@ -5,7 +5,7 @@ def get_buttons(self):
 	button _incr = 0
 	button_decr = 0
 	button_reset = 0
-  indice = 0
+  	indice = 0
 	
         #Define o pino do botao como entrada
         GPIO.setup(18, GPIO.IN)
