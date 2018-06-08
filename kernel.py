@@ -28,97 +28,32 @@ class Kernel(gabby.Gabby):
     def get_time(self):
         return 12938712983712.12
 
+
     def get_buttons(self):
         
         #Verifica quantas vezes o botao foi acionado
         contador = 0
-        contador1 = 0
-        
-        #Define os pinos dos reles como saida - Modulo 1
-        GPIO.setup(37, GPIO.OUT)
-        GPIO.setup(35, GPIO.OUT)
-        GPIO.setup(33, GPIO.OUT)
-        GPIO.setup(31, GPIO.OUT)
-        #Define os pinos dos reles como saida - Modulo 2
-        GPIO.setup(40, GPIO.OUT)
-        GPIO.setup(38, GPIO.OUT)
-        GPIO.setup(36, GPIO.OUT)
-        GPIO.setup(32, GPIO.OUT) 
+	button _incr = 0
+	button_decr = 0
+	button_reset = 0
+	
         #Define o pino do botao como entrada
         GPIO.setup(18, GPIO.IN)
         GPIO.setup(11, GPIO.IN)
-        GPIO.setup(, GPIO.IN)
+        GPIO.setup(17, GPIO.IN)
         
-        #Inicio-todos os reles desligados - Modulo 1
-        GPIO.output(37,1)
-        GPIO.output(35,1)
-        GPIO.output(33,1)
-        GPIO.output(31,1)
-        #Inicio- todos os reles desligados - Modulo 2
-        GPIO.output(40,1)
-        GPIO.output(38,1)
-        GPIO.output(36,1)
-        GPIO.output(32,1)
-
-    
+	time.sleep(0.3)
     	if GPIO.input(18) == True:
-        #Incrementa a variavel contador
-        contador = contador +1
-        time.sleep(0.5)
-        	if contador == 1:
-           		GPIO.output(37, 0)
-	       		GPIO.output(32, 0)
-        	 if contador == 2:
-	       		GPIO.output(37, 1)
-	       		GPIO.output(32, 1)
-           		GPIO.output(35, 0)
-           		GPIO.output(36, 0)
-        	 if contador == 3:
-	       		GPIO.output(35, 1)
-           		GPIO.output(36, 1)  
-           		GPIO.output(33, 0)
-           		GPIO.output(38, 0)
-        	  if contador == 4:
-	       		GPIO.output( 33, 1)
-           		GPIO.output( 38, 1)
-           		GPIO.output( 31, 0)
-           		GPIO.output( 40, 0)
-       		  if contador > 4:
-           		GPIO.output(31, 1)
-	   		GPIO.output(40, 1)
-	   		print('Por favor, escolha uma carga de 1 a 4')   
-           		contador = 0
-
+      		button_incr = 1
+       
         if GPIO.input(11) == True:
-        #Incrementa a variavel contador
-        time.sleep(0.5)
-		if contador == 0:
-	        	print('Nao tem carga no equipamento')
-              	if contador == 1:
-                	GPIO.output(37, 1)
-                	GPIO.output(32, 1)
-	        	contador = 0  
-            	if contador == 2:
-                	GPIO.output(35, 1)
-	        	GPIO.output(36, 1)
-	        	GPIO.output(37, 0)
-                	GPIO.output(32, 0)
-	        	contador = 1
-            	if contador == 3:
-                	GPIO.output(33, 1)
-                	GPIO.output(38, 1)
-	        	GPIO.output(35, 0)
-                	GPIO.output(36, 0)
-	        	contador = 2
-             	if contador == 4:
-                	GPIO.output(31, 1)
-	        	GPIO.output(40, 1)
-	        	GPIO.output(33, 0)
-                	GPIO.output(38, 0)
-	        	contador = 3
-
+		button_decr = 1
+		
+        if GPIO.input(11) == True:
+		button_reset = 1
         
-        return [1.0, 0.0, 1.0]
+        return [button_incr, button_decr, button_reset]
+
 
     def get_weight(self):
 	#Definindo os pinos da celula de carga 1:
@@ -197,4 +132,86 @@ class Kernel(gabby.Gabby):
 	
         return 13255.0
 
-   
+      
+    def get_carga()
+
+	#Verifica quantas vezes o botao foi acionado
+        contador = 0
+	#Define os pinos dos reles como saida - Modulo 1
+        GPIO.setup(37, GPIO.OUT)
+        GPIO.setup(35, GPIO.OUT)
+        GPIO.setup(33, GPIO.OUT)
+        GPIO.setup(31, GPIO.OUT)
+        #Define os pinos dos reles como saida - Modulo 2
+        GPIO.setup(40, GPIO.OUT)
+        GPIO.setup(38, GPIO.OUT)
+        GPIO.setup(36, GPIO.OUT)
+        GPIO.setup(32, GPIO.OUT) 
+	
+	#Inicio-todos os reles desligados - Modulo 1
+        GPIO.output(37,1)
+        GPIO.output(35,1)
+        GPIO.output(33,1)
+        GPIO.output(31,1)
+        #Inicio- todos os reles desligados - Modulo 2
+        GPIO.output(40,1)
+        GPIO.output(38,1)
+        GPIO.output(36,1)
+        GPIO.output(32,1)
+	
+	#Colocar aqui parte do código que indica botão Plus_click
+	        if contador == 1:
+           		GPIO.output(37, 0)
+	       		GPIO.output(32, 0)
+        	 if contador == 2:
+	       		GPIO.output(37, 1)
+	       		GPIO.output(32, 1)
+           		GPIO.output(35, 0)
+           		GPIO.output(36, 0)
+        	 if contador == 3:
+	       		GPIO.output(35, 1)
+           		GPIO.output(36, 1)  
+           		GPIO.output(33, 0)
+           		GPIO.output(38, 0)
+        	  if contador == 4:
+	       		GPIO.output( 33, 1)
+           		GPIO.output( 38, 1)
+           		GPIO.output( 31, 0)
+           		GPIO.output( 40, 0)
+       		  if contador > 4:
+           		GPIO.output(31, 1)
+	   		GPIO.output(40, 1)
+	   		print('Por favor, escolha uma carga de 1 a 4')   
+           		contador = 0
+			
+	#Colocar aqui a parte do código para Minimus_click:
+		if contador == 0:
+	        	print('Nao tem carga no equipamento')
+              	if contador == 1:
+                	GPIO.output(37, 1)
+                	GPIO.output(32, 1)
+	        	contador = 0  
+            	if contador == 2:
+                	GPIO.output(35, 1)
+	        	GPIO.output(36, 1)
+	        	GPIO.output(37, 0)
+                	GPIO.output(32, 0)
+	        	contador = 1
+            	if contador == 3:
+                	GPIO.output(33, 1)
+                	GPIO.output(38, 1)
+	        	GPIO.output(35, 0)
+                	GPIO.output(36, 0)
+	        	contador = 2
+             	if contador == 4:
+                	GPIO.output(31, 1)
+	        	GPIO.output(40, 1)
+	        	GPIO.output(33, 0)
+                	GPIO.output(38, 0)
+	        	contador = 3
+
+
+    
+	
+	
+   	return xxx
