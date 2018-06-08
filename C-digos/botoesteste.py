@@ -21,7 +21,7 @@ def get_buttons(self):
 		    time.sleep(0.3)
         indice -= 1
 		    
-       if GPIO.input(17) == True:
+       if GPIO.input(12) == True:
 		    button_reset = 1
         	
         
