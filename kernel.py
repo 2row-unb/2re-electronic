@@ -8,6 +8,7 @@ import RPi.GPIO as GPIO
 import time
 import math
 
+
 GPIO.setwarnings(False) 
 GPIO.setmode(GPIO.BOARD)
 
@@ -27,7 +28,16 @@ class Kernel(gabby.Gabby):
         return [gabby.Message(data, self.output_topics)]
 
     def get_time(self):
-        return 12938712983712.12
+    	#time.sleep()
+
+	tx= time.time()
+
+	get_time()
+
+	ty  = time.time() - tx
+
+	#print ty
+        return ty
 
 
     def get_buttons(self):
