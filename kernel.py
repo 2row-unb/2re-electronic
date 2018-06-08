@@ -7,7 +7,7 @@ import logging
 import RPi.GPIO as GPIO
 import time
 import math
-import alterar_carga from Controle_carga
+
 
 
 GPIO.setwarnings(False) 
