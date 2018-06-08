@@ -156,7 +156,7 @@ class Kernel(gabby.Gabby):
 	Pot_final = o
 	Pot_final = E/t 
 	
-        return Pot_final
+        return F
 
       
     def get_carga()
