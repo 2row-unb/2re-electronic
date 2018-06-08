@@ -32,7 +32,7 @@ class Kernel(gabby.Gabby):
     def get_buttons(self):
         
         #Verifica quantas vezes o botao foi acionado
-        contador = 0
+        #contador = 0
 	button _incr = 0
 	button_decr = 0
 	button_reset = 0
@@ -44,13 +44,20 @@ class Kernel(gabby.Gabby):
         
 	time.sleep(0.3)
     	if GPIO.input(18) == True:
-      		button_incr = 1
+		contador += 1
+		button_incr = contador
        
         if GPIO.input(11) == True:
-		button_decr = 1
+		contador += 1
+		button_decr = contador
 		
-        if GPIO.input(11) == True:
+        if GPIO.input(17) == True:
+		
 		button_reset = 1
+		contador += 1
+		if (contador == 2):
+			button_reset = 0
+			
         
         return [button_incr, button_decr, button_reset]
 
