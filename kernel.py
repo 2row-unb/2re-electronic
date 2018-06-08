@@ -129,10 +129,14 @@ class Kernel(gabby.Gabby):
   		print PESO,"kg"
   		time.sleep(0.5)
  	
+	#Verificar local certo de colocar essa conta
+	P_medio = 0
 	P_medio = (PESO2 + PESO)/2
+	F = 0
 	F = P_medio*9.81*cos(45)
 	#calculo da energia
 	#verificar t como variável global
+	Pot_final = o
 	Pot_final = E/t 
 	
         return Pot_final
