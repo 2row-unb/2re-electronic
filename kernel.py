@@ -142,7 +142,7 @@ class Kernel(gabby.Gabby):
 	P_medio = PESO2 + PESO
 	F = 0
 	angle = 45
-	F = P_medio*9.81*math.cos(converterGrausParaRad(angle))
+	F = P_medio*9.81*0.7071
 	#calculo da energia
 	#verificar t como variável global
 	Pot_final = o
