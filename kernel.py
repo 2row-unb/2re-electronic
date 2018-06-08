@@ -121,6 +121,80 @@ class Kernel(gabby.Gabby):
         return [1.0, 0.0, 1.0]
 
     def get_weight(self):
+	#Definindo os pinos da celula de carga 1:
+	DAT =15
+	CLK=16
+	#Definindo os pinos da celula de carga 2:
+	DAT2 = 13
+	CLK2 = 8
+	#Contadores das celulas 1 e 2, respectivamente:
+	num=0
+	num2=0
+	#Definindo pinos como saida:
+	gpio.setup(CLK, gpio.OUT)
+	gpio.setup(CLK2,gpio.OUT)
+	#Funcao da leitura da celula de carga 2:
+	def weight2():
+  		i=0
+  		num2=0
+  		gpio.setup(DAT2, gpio.OUT)
+  		gpio.output(DAT2,1)
+  		gpio.output(CLK2,0)
+  		gpio.setup(DAT2, gpio.IN)
+
+  		while gpio.input(DAT2) == 1:
+      			i=0
+  		for i in range(24):
+        		gpio.output(CLK2,1)
+        		num2 = num2<<1
+			
+        		gpio.output(CLK2,0)
+        		if gpio.input(DAT2) == 0:
+            			num2 = num2 + 1
+  		gpio.output(CLK2,1)
+ 		
+  		num2 = num2^0x800000
+  		gpio.output(CLK2,0)
+  		wei2 = 0
+  		wei2 = ((num2)/1406)
+ 
+  		PESO2=(((wei2-5943)/15))
+  		print PESO2,"kg"
+  		time.sleep(0.5)
+
+        #Funcao da leitura da celula de carga 1:
+	def weight():
+  		i=0
+  		num=0
+  		gpio.setup(DAT, gpio.OUT)
+  		gpio.output(DAT,1)
+  		gpio.output(CLK,0)
+  		gpio.setup(DAT, gpio.IN)
+
+  		while gpio.input(DAT) == 1:
+      			i=0
+  		for i in range(24):
+        		gpio.output(CLK,1)
+        		num = num<<1
+
+        		gpio.output(CLK,0)
+
+        	if gpio.input(DAT) == 0:
+            		num=num+1
+			gpio.output(CLK,1)
+ 
+  			num=num^0x800000
+ 
+  			gpio.output(CLK,0)
+  			wei = 0
+  			wei = ((num)/1406)
+  			
+  
+  			PESO=(((wei-5943)/15))
+  			print PESO,"kg"
+  			time.sleep(0.5)
+ 	
+	
         return 13255.0
 
    
