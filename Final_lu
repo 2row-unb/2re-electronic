@@ -1,5 +1,4 @@
-## Lu
-
+## Solução final eletrônica
 #### IMU
  
 O MQTT, protocolo utilizado para o envio de mensagens do microcontrolador ESP8266 para o Kernel inicialmente foi desenvolvido 
@@ -25,19 +24,3 @@ Energia:
 
 Software:
 
-Estrutura:
-
-Para a disposição dos componentes eletrônicos, para que os fios não ficassem espalhados e pudessem ter um bom funcionamento, 
-sem possíveis danos e mal contatos, foi desenvolvido o case, ele dispõe de parteleiras, em que foi possível acoplar todos os fios, módulo relé, 
-placa de conexão, raspberry Pi 3, botões e o visualizador. Desse modo, os componentes ficaram organizados e livremente distribuidos.
-A Figura XX apresenta  a parte externa do case e a Figura XX mostra o interior com os componentes eletrônicos em seus lugares específicos.
-
-Figuras Case externo/interno
-
-
-Outro ponto da integração foi com relação a célula de carga, para o sistema Watt, foi contruido uma estrutura de apoio em que a célula
-ficou posicionada com um ângulo de 45 graus em relação a estrutura de perfil. Esse ângulo foi utilizado para o cálculo da força. A lixa 
-que localiza-se na superfície permite que o pé do atleta não deslize, proporcionando maior estabilidade. O velcro localizado apenas na parte superior permite 
-que a parte inferior dos pés possa se movimentar para alcançar maior amplitude da remada.
-
-Foto da célula de carga na estrutura
