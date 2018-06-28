@@ -15,5 +15,6 @@ protocolo MQTT-SN (MQTT for Sensor Network), isso porque esse protocolo em espec
 sejam atendidas. Esse protocolo é muito utilizado em projetos de IoT que precisam da utilização de baterias como fonte de alimentação. 
 No caso desse projeto, foi preciso utilizarmos a camada de internet UDP, o tamanho mínimo da mensagem para esse protocolo é de 1 byte. Um ponto 
 importante que auxilia a velocidade é que esse protocolo possibilita suporte ao ID, tornando a comunicação mais rápida, devido a resução
-de processamento e memória.
+de processamento e memória. Com a utilização desse protocolo  a taxa de amostragem do sistema ficou em 100 Hz, o que possibilitou 
+receber os dados para o tratamento dos dados da IMU no sistema de software.
 
