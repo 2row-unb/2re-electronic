@@ -1,6 +1,5 @@
-## Vitor
-Bateria
-Cálculos para bateria utilizada para suprir a ESP8266 com a IMU9250
+## Bateria
+### Cálculos para bateria utilizada para suprir a ESP8266 com a IMU9250
 Para os cálculos foram considerados o uso momenâneo com bateria recarregavel para o projeto. 
 Isso é suficiente pois a IMU escolhida é considerada de consumo super baixo e a ESP8266 também.
 
