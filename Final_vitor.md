@@ -12,5 +12,5 @@ totalizando 3,93mA de consumo
 A ESP8266 consome, com o WIFI ligado e clock máximo 215mA
 
 O total de consumo para envio das mensagens usando MQTT por UDP é de:
-215mA+3,93mA, totalizando 219mAh. Portanto a bateria escolhida de 5V e 2A era suficiente para o projeto.
+215mA+3,93mA, totalizando 219mAh. Portanto a bateria escolhida de 5V e 5Ah era suficiente para o projeto.
 A alta capacidade da bateria que ficou alocada em bolsão nas costas do atleta possibilitou vários testes até o correto funcionamento do aparelho por tempo suficiente para validação.
